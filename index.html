@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <title>Yahtzee</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <h1 class="center">Yahtzee</h1>
+    <div class="center">
+        <button id="startgame" onclick="startgame()" class="bigbutton">Start!</button>
+    </div>
+    <div id="dice" class="center">
+        <img id="die1" hidden=true class="clickable">
+        <img id="die2" hidden=true class="clickable">
+        <img id="die3" hidden=true class="clickable">
+        <img id="die4" hidden=true class="clickable">
+        <img id="die5" hidden=true class="clickable">
+    </div>
+    <div id="rollcontainer">
+        <button class="bigbutton" id="roll" onclick="rolldice()" hidden=true>Roll</button>
+    </div>
+    <div id="explanation" hidden=true>
+        <p>Click a die to keep it instead of rolling it</p>
+    </div>
+    <h1 id="score"></h1>
+    <div id="scoresheet1" hidden=true>
+        <table>
+            <tr>
+                <th>UPPER SECTION</th>
+                <th>HOW TO SCORE</th>
+                <th>SCORE</th>
+            </tr>
+            <tr>
+                <td>ACES (1)</td>
+                <td>Count and add only aces</td>
+                <td id="acesval"><button id="aces" onclick="fill(this)">Fill</button></td>
+            </tr>
+            <tr>
+                <td>TWOS (2)</td>
+                <td>Count and add only twos</td>
+                <td id="twosval"><button id="twos" onclick="fill(this)">Fill</button></td>
+            </tr>
+            <tr>
+                <td>THREES (3)</td>
+                <td>Count and add only threes</td>
+                <td id="threesval"><button id="threes" onclick="fill(this)">Fill</button></td>
+            </tr>
+            <tr>
+                <td>FOURS (4)</td>
+                <td>Count and add only fours</td>
+                <td id="foursval"><button id="fours" onclick="fill(this)">Fill</button></td>
+            </tr>
+            <tr>
+                <td>FIVES (5)</td>
+                <td>Count and add only fives</td>
+                <td id="fivesval"><button id="fives" onclick="fill(this)">Fill</button></td>
+            </tr>
+            <tr>
+                <td>SIXES (6)</td>
+                <td>Count and add only sixes</td>
+                <td id="sixesval"><button id="sixes" onclick="fill(this)">Fill</button></td>
+            </tr>
+            <tr>
+                <td>TOTAL SCORE</td>
+                <td>Total of above</td>
+                <td id="uppersubtotal"></td>
+            </tr>
+            <tr>
+                <td>BONUS</td>
+                <td>Add 35 if score above 63</td>
+                <td id="bonus1val"></td>
+            </tr>
+            <tr>
+                <td>TOTAL</td>
+                <td>Total score for upper section</td>
+                <td id="uppertotal1"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="scoresheet2" hidden=true>
+        <table>
+            <tr>
+                <th>LOWER SECTION</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>3 of a kind</td>
+                <td>Add total of all dice</td>
+                <td id="3kindval"><button id="3kind" onclick="fill(this)" class="filler">Fill</button></td>
+            </tr>
+            <tr>
+                <td>4 of a kind</td>
+                <td>Add total of all dice</td>
+                <td id="4kindval"><button id="4kind" onclick="fill(this)" class="filler">Fill</button></td>
+            </tr>
+            <tr>
+                <td>Full house</td>
+                <td>Score 25</td>
+                <td id="fullhouseval"><button id="fullhouse" onclick="fill(this)" class="filler">Fill</button></td>
+            </tr>
+            <tr>
+                <td>Small straight</td>
+                <td>Score 30</td>
+                <td id="smstraightval"><button id="smstraight" onclick="fill(this)" class="filler">Fill</button></td>
+            </tr>
+            <tr>
+                <td>Long straight</td>
+                <td>Score 40</td>
+                <td id="lgstraightval"><button id="lgstraight" onclick="fill(this)" class="filler">Fill</button></td>
+            </tr>
+            <tr>
+                <td>Yahtzee</td>
+                <td>Score 50</td>
+                <td id="yahtzeeval"><button id="yahtzee" onclick="fill(this)" class="filler">Fill</button></td>
+            </tr>
+            <tr>
+                <td>Chance</td>
+                <td>Score total of all 5 dice</td>
+                <td id="chanceval"><button id="chance" onclick="fill(this)" class="filler">Fill</button></td>
+            </tr>
+            <tr>
+                <td>Yahtzee bonus</td>
+                <td>Add 100 points for extra Yahtzee</td>
+                <td id="yahbonusval"><button id="yahbonus" onclick="fill(this)" class="filler">Fill</button></td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>Upper section</td>
+                <td id="uppertotal2"></td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>Lower section</td>
+                <td id="lowertotal"></td>
+            </tr>
+            <tr>
+                <td>GRAND TOTAL</td>
+                <td>Both sections</td>
+                <td id="grandtotal"></td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript" src="yahtzee.js"></script>
+</html>
