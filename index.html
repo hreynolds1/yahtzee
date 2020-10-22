@@ -31,47 +31,47 @@
             <tr>
                 <td>ACES (1)</td>
                 <td>Count and add only aces</td>
-                <td id="acesval"><button id="aces" onclick="fill(this)">Fill</button></td>
+                <td id="acesval"><button id="aces" onclick="fill(this)" onmouseover="points(this)" onmouseout="resetele(this)">Fill</button></td>
             </tr>
             <tr>
                 <td>TWOS (2)</td>
                 <td>Count and add only twos</td>
-                <td id="twosval"><button id="twos" onclick="fill(this)">Fill</button></td>
+                <td id="twosval"><button id="twos" onclick="fill(this)" onmouseover="points(this)" onmouseout="resetele(this)">Fill</button></td>
             </tr>
             <tr>
                 <td>THREES (3)</td>
                 <td>Count and add only threes</td>
-                <td id="threesval"><button id="threes" onclick="fill(this)">Fill</button></td>
+                <td id="threesval"><button id="threes" onclick="fill(this)" onmouseover="points(this)" onmouseout="resetele(this)">Fill</button></td>
             </tr>
             <tr>
                 <td>FOURS (4)</td>
                 <td>Count and add only fours</td>
-                <td id="foursval"><button id="fours" onclick="fill(this)">Fill</button></td>
+                <td id="foursval"><button id="fours" onclick="fill(this)" onmouseover="points(this)" onmouseout="resetele(this)">Fill</button></td>
             </tr>
             <tr>
                 <td>FIVES (5)</td>
                 <td>Count and add only fives</td>
-                <td id="fivesval"><button id="fives" onclick="fill(this)">Fill</button></td>
+                <td id="fivesval"><button id="fives" onclick="fill(this)" onmouseover="points(this)" onmouseout="resetele(this)">Fill</button></td>
             </tr>
             <tr>
                 <td>SIXES (6)</td>
                 <td>Count and add only sixes</td>
-                <td id="sixesval"><button id="sixes" onclick="fill(this)">Fill</button></td>
+                <td id="sixesval"><button id="sixes" onclick="fill(this)" onmouseover="points(this)" onmouseout="resetele(this)">Fill</button></td>
             </tr>
             <tr>
                 <td>TOTAL SCORE</td>
                 <td>Total of above</td>
-                <td id="uppersubtotal"></td>
+                <td id="uppersubtotal">0</td>
             </tr>
             <tr>
                 <td>BONUS</td>
                 <td>Add 35 if score above 63</td>
-                <td id="bonus1val"></td>
+                <td id="bonus1val">0</td>
             </tr>
             <tr>
                 <td>TOTAL</td>
                 <td>Total score for upper section</td>
-                <td id="uppertotal1"></td>
+                <td id="uppertotal1">0</td>
             </tr>
         </table>
     </div>
@@ -85,57 +85,57 @@
             <tr>
                 <td>3 of a kind</td>
                 <td>Add total of all dice</td>
-                <td id="3kindval"><button id="3kind" onclick="fill(this)" class="filler">Fill</button></td>
+                <td id="3kindval"><button id="3kind" onclick="fill(this)" class="filler" onmouseover="points(this)" onmouseout="resetele(this)">Fill</button></td>
             </tr>
             <tr>
                 <td>4 of a kind</td>
                 <td>Add total of all dice</td>
-                <td id="4kindval"><button id="4kind" onclick="fill(this)" class="filler">Fill</button></td>
+                <td id="4kindval"><button id="4kind" onclick="fill(this)" class="filler" onmouseover="points(this)" onmouseout="resetele(this)">Fill</button></td>
             </tr>
             <tr>
                 <td>Full house</td>
                 <td>Score 25</td>
-                <td id="fullhouseval"><button id="fullhouse" onclick="fill(this)" class="filler">Fill</button></td>
+                <td id="fullhouseval"><button id="fullhouse" onclick="fill(this)" class="filler" onmouseover="points(this)" onmouseout="resetele(this)">Fill</button></td>
             </tr>
             <tr>
                 <td>Small straight</td>
                 <td>Score 30</td>
-                <td id="smstraightval"><button id="smstraight" onclick="fill(this)" class="filler">Fill</button></td>
+                <td id="smstraightval"><button id="smstraight" onclick="fill(this)" class="filler" onmouseover="points(this)" onmouseout="resetele(this)">Fill</button></td>
             </tr>
             <tr>
                 <td>Long straight</td>
                 <td>Score 40</td>
-                <td id="lgstraightval"><button id="lgstraight" onclick="fill(this)" class="filler">Fill</button></td>
+                <td id="lgstraightval"><button id="lgstraight" onclick="fill(this)" class="filler" onmouseover="points(this)" onmouseout="resetele(this)">Fill</button></td>
             </tr>
             <tr>
                 <td>Yahtzee</td>
                 <td>Score 50</td>
-                <td id="yahtzeeval"><button id="yahtzee" onclick="fill(this)" class="filler">Fill</button></td>
+                <td id="yahtzeeval"><button id="yahtzee" onclick="fill(this)" class="filler" onmouseover="points(this)" onmouseout="resetele(this)">Fill</button></td>
             </tr>
             <tr>
                 <td>Chance</td>
                 <td>Score total of all 5 dice</td>
-                <td id="chanceval"><button id="chance" onclick="fill(this)" class="filler">Fill</button></td>
+                <td id="chanceval"><button id="chance" onclick="fill(this)" class="filler" onmouseover="points(this)" onmouseout="resetele(this)">Fill</button></td>
             </tr>
             <tr>
                 <td>Yahtzee bonus</td>
                 <td>Add 100 points for extra Yahtzee</td>
-                <td id="yahbonusval"><button id="yahbonus" onclick="fill(this)" class="filler">Fill</button></td>
+                <td id="yahbonusval"><button id="yahbonus" onclick="fill(this)" class="filler" onmouseover="points(this)" onmouseout="resetele(this)">Fill</button></td>
             </tr>
             <tr>
                 <td>Total</td>
                 <td>Upper section</td>
-                <td id="uppertotal2"></td>
+                <td id="uppertotal2">0</td>
             </tr>
             <tr>
                 <td>Total</td>
                 <td>Lower section</td>
-                <td id="lowertotal"></td>
+                <td id="lowertotal">0</td>
             </tr>
             <tr>
                 <td>GRAND TOTAL</td>
                 <td>Both sections</td>
-                <td id="grandtotal"></td>
+                <td id="grandtotal">0</td>
             </tr>
         </table>
     </div>
