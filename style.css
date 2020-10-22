@@ -84,3 +84,9 @@ table{
     top: 200px;
     text-align: center;
 }
+.green{
+    background-color: rgba(64, 235, 52,80);
+}
+.red{
+    background-color: red;
+}
