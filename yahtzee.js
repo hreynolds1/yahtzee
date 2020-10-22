@@ -80,95 +80,102 @@ function startgame(){
     document.getElementById("roll").hidden=false
     document.getElementById("explanation").hidden=false
 }
-uppersubtotal=0
-uppertotal=0
-lowertotal=0
-grandtotal=0
-function fill(ele){
-    parentele=document.getElementById(ele.id+"val")
+function points(ele){
+    pointscore=getscore(ele.id)
+    ele.innerHTML=pointscore
+    if (pointscore>0){ele.classList.add("green")}else{ele.classList.add("red")}
+}
+function resetele(ele){
+    ele.classList.remove("green")
+    ele.classList.remove("red")
+    ele.innerHTML="Fill"
+}
+function getscore(key){
     dicevals=[die1.numval,die2.numval,die3.numval,die4.numval,die5.numval]
-    pointcount+=1
-    switch (ele.id){
+    switch (key){
         case "aces":
-            parentele.innerHTML=getcount(dicevals,1)
-            uppersubtotal+=parseInt(parentele.innerHTML)
+            score=getcount(dicevals,1)
             break;
         case "twos":
-            parentele.innerHTML=2*getcount(dicevals,2)
-            uppersubtotal+=parseInt(parentele.innerHTML)
+            score=2*getcount(dicevals,2)
             break;
         case "threes":
-            parentele.innerHTML=3*getcount(dicevals,3)
-            uppersubtotal+=parseInt(parentele.innerHTML)
+            score=3*getcount(dicevals,3)
             break;
         case "fours":
-            parentele.innerHTML=4*getcount(dicevals,4)
-            uppersubtotal+=parseInt(parentele.innerHTML)
+            score=4*getcount(dicevals,4)
             break;
         case "fives":
-            parentele.innerHTML=5*getcount(dicevals,5)
-            uppersubtotal+=parseInt(parentele.innerHTML)
+            score=5*getcount(dicevals,5)
             break;
         case "sixes":
-            parentele.innerHTML=6*getcount(dicevals,6)
-            uppersubtotal+=parseInt(parentele.innerHTML)
+            score=6*getcount(dicevals,6)
             break;
         case "3kind":
-            parentele.innerHTML=0
+            score=0
             for (x in dicevals){
                 if (getcount(dicevals,dicevals[x])>=3){
-                    parentele.innerHTML=sum(dicevals)
+                    score=sum(dicevals)
                 }
             }
-            lowertotal+=parseInt(parentele.innerHTML)
             break;
         case "4kind":
-            parentele.innerHTML=0
+            score=0
             for (x in dicevals){
                 if (getcount(dicevals,dicevals[x])>=4){
-                    parentele.innerHTML=sum(dicevals)
+                    score=sum(dicevals)
                 }
             }
-            lowertotal+=parseInt(parentele.innerHTML)
             break;
         case "fullhouse":
-            if (distinct(dicevals)<=2){parentele.innerHTML=25}else{parentele.innerHTML=0}
-            lowertotal+=parseInt(parentele.innerHTML)  
+            if (distinct(dicevals)<=2){score=25}else{score=0}
             break;
         case "smstraight":
             sorted=makeunique(dicevals.sort())
             while (sorted.length<6){
                 sorted.push(0)
             }
-            if (consecutive(sorted.slice(0,3)) || consecutive(sorted.slice(1,4)) || consecutive(sorted.slice(2,5))){parentele.innerHTML=30}else{parentele.innerHTML=0}
-            lowertotal+=parseInt(parentele.innerHTML)
+            if (consecutive(sorted.slice(0,3)) || consecutive(sorted.slice(1,4)) || consecutive(sorted.slice(2,5))){score=30}else{score=0}
             break;
         case "lgstraight":
             sorted=makeunique(dicevals.sort())
             while (sorted.length<6){
                 sorted.push(0)
             }
-            if (consecutive(sorted.slice(0,4)) || consecutive(sorted.slice(1,5))){parentele.innerHTML=40}else{parentele.innerHTML=0}
-            lowertotal+=parseInt(parentele.innerHTML)
+            if (consecutive(sorted.slice(0,4)) || consecutive(sorted.slice(1,5))){score=40}else{score=0}
             break;
         case "yahtzee":
-            if (distinct(dicevals)==1){parentele.innerHTML=50}else{parentele.innerHTML=0}
-            lowertotal+=parseInt(parentele.innerHTML)
+            if (distinct(dicevals)==1){score=50}else{score=0}
             break;
         case "chance":
-            parentele.innerHTML=sum(dicevals)
-            lowertotal+=parseInt(parentele.innerHTML)
+            score=sum(dicevals)
             break;
         case "yahbonus":
-            if (distinct(dicevals)==1 && document.getElementById("yahtzeeval").innerHTML==50){parentele.innerHTML=100}else{throw "nah"}
-            lowertotal+=parseInt(parentele.innerHTML)
+            if (distinct(dicevals)==1 && document.getElementById("yahtzeeval").innerHTML==50){score=100}else{throw "nah"}
             break;
     }
-    document.getElementById("uppersubtotal").innerHTML=uppersubtotal
-    if (uppersubtotal>63){document.getElementById("bonus1val").innerHTML=35}else{document.getElementById("bonus1val").innerHTML=0}
-    document.getElementById("uppertotal1").innerHTML=uppersubtotal+parseInt(document.getElementById("bonus1val").innerHTML)
-    document.getElementById("uppertotal2").innerHTML=uppersubtotal+parseInt(document.getElementById("bonus1val").innerHTML)
-    document.getElementById("lowertotal").innerHTML=lowertotal
+    return score;
+}
+uppersubtotal=0
+uppertotal=0
+lowertotal=0
+grandtotal=0
+function fill(ele){
+    parentele=document.getElementById(ele.id+"val")
+    
+    pointcount+=1
+    if (["aces","twos","threes","fours","fives","sixes"].indexOf(ele.id)>-1){
+        parentele.innerHTML=getscore(ele.id)
+        uppersubtotal+=getscore(ele.id)
+        document.getElementById("uppersubtotal").innerHTML=uppersubtotal
+        if (uppersubtotal>63){document.getElementById("bonus1val").innerHTML=35}else{document.getElementById("bonus1val").innerHTML=0}
+        document.getElementById("uppertotal1").innerHTML=uppersubtotal+parseInt(document.getElementById("bonus1val").innerHTML)
+        document.getElementById("uppertotal2").innerHTML=uppersubtotal+parseInt(document.getElementById("bonus1val").innerHTML)
+    } else {
+        parentele.innerHTML=getscore(ele.id)
+        lowertotal+=getscore(ele.id)
+        document.getElementById("lowertotal").innerHTML=lowertotal
+    }
     grandtotal=lowertotal+uppersubtotal+parseInt(document.getElementById("bonus1val").innerHTML)
     document.getElementById("grandtotal").innerHTML=grandtotal
     document.getElementById("roll").hidden=false
