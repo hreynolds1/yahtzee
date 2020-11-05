@@ -7,7 +7,8 @@ html{
     font-family: Ubuntu;
 }
 body{
-    background-image: url('https://img.freepik.com/free-vector/stylish-hexagonal-line-pattern-background_1017-19742.jpg?size=626&ext=jpg')
+    background-image: url('https://img.freepik.com/free-vector/stylish-hexagonal-line-pattern-background_1017-19742.jpg?size=626&ext=jpg');
+    background-size: contain;
 }
 input{
     border-radius: 4px;
